@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chessHour:Puzzle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:chessHour="http://www.example.org/chessHour">
+  <board width="4" height="6">
+    <cells active="true"/>
+    <cells x="1" active="true"/>
+    <cells x="2" active="true"/>
+    <cells x="3" active="true"/>
+    <cells y="1" active="true" blocked="true"/>
+    <cells x="1" y="1" active="true" blocked="true"/>
+    <cells x="2" y="1" active="true" blocked="true"/>
+    <cells x="3" y="1" active="true" blocked="true"/>
+    <cells y="2" active="true"/>
+    <cells x="1" y="2" active="true"/>
+    <cells x="2" y="2" active="true"/>
+    <cells x="3" y="2" active="true"/>
+    <cells y="3" active="true"/>
+    <cells x="1" y="3" active="true"/>
+    <cells x="2" y="3" active="true"/>
+    <cells x="3" y="3" active="true"/>
+    <cells y="4" active="true"/>
+    <cells x="1" y="4" active="true"/>
+    <cells x="2" y="4" active="true"/>
+    <cells x="3" y="4" active="true"/>
+    <cells y="5" active="true" blocked="true"/>
+    <cells x="1" y="5" active="true" blocked="true"/>
+    <cells x="2" y="5" active="true" blocked="true"/>
+    <cells x="3" y="5" active="true"/>
+  </board>
+  <pieceTypes name="White Knight" iconFile="white-knight.png">
+    <moveRules direction="LSHAPE" maxDistance="1" moveType="MOVE_OR_CAPTURE" canJumpOverBlocked="true"/>
+  </pieceTypes>
+  <pieceTypes name="White Pawn" iconFile="white-pawn.png">
+    <moveRules direction="FORWARD" maxDistance="1"/>
+    <moveRules direction="FORWARD_DIAGONAL" maxDistance="1" moveType="CAPTURE_ONLY"/>
+  </pieceTypes>
+  <pieceTypes name="White Rook" iconFile="white-rook.png">
+    <moveRules infinite="true" moveType="MOVE_OR_CAPTURE"/>
+  </pieceTypes>
+  <pieceTypes name="White Bishop" iconFile="white-bishop.png">
+    <moveRules direction="DIAGONAL" infinite="true" moveType="MOVE_OR_CAPTURE"/>
+  </pieceTypes>
+  <pieceTypes name="Black Pawn" iconFile="black-pawn.png">
+    <moveRules maxDistance="1"/>
+    <moveRules direction="DIAGONAL" maxDistance="1" moveType="CAPTURE_ONLY"/>
+  </pieceTypes>
+  <pieces x="3" y="5" type="//@pieceTypes.0"/>
+  <pieces y="4" type="//@pieceTypes.1"/>
+  <pieces x="1" y="4" type="//@pieceTypes.1"/>
+  <pieces x="2" y="4" type="//@pieceTypes.1"/>
+  <pieces y="3" type="//@pieceTypes.2"/>
+  <pieces x="1" y="3" type="//@pieceTypes.2"/>
+  <pieces x="2" y="3" type="//@pieceTypes.2"/>
+  <pieces x="3" y="3" type="//@pieceTypes.2"/>
+  <pieces y="2" type="//@pieceTypes.3"/>
+  <pieces x="1" y="2" type="//@pieceTypes.3"/>
+  <pieces x="2" y="2" type="//@pieceTypes.3"/>
+  <pieces x="3" y="2" type="//@pieceTypes.3"/>
+  <pieces owner="OPPONENT" type="//@pieceTypes.4"/>
+  <pieces x="1" owner="OPPONENT" type="//@pieceTypes.4"/>
+  <pieces x="2" owner="OPPONENT" type="//@pieceTypes.4"/>
+  <pieces x="3" owner="OPPONENT" type="//@pieceTypes.4"/>
+</chessHour:Puzzle>

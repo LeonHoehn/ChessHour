@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/ChessHour/src-gen" creationIcons="false" editDirectory="/ChessHour.edit/src-gen"
+    editorDirectory="/ChessHour.editor/src-gen" modelPluginID="ChessHour" modelName="ChessHour"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="21.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>chessHour.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="ChessHour" disposableProviderFactory="true" ecorePackage="chessHour.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="chessHour.ecore#//Direction">
+      <genEnumLiterals ecoreEnumLiteral="chessHour.ecore#//Direction/ORTHOGONAL"/>
+      <genEnumLiterals ecoreEnumLiteral="chessHour.ecore#//Direction/DIAGONAL"/>
+      <genEnumLiterals ecoreEnumLiteral="chessHour.ecore#//Direction/LSHAPE"/>
+      <genEnumLiterals ecoreEnumLiteral="chessHour.ecore#//Direction/FORWARD"/>
+      <genEnumLiterals ecoreEnumLiteral="chessHour.ecore#//Direction/FORWARD_DIAGONAL"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="chessHour.ecore#//MoveType">
+      <genEnumLiterals ecoreEnumLiteral="chessHour.ecore#//MoveType/MOVE_ONLY"/>
+      <genEnumLiterals ecoreEnumLiteral="chessHour.ecore#//MoveType/CAPTURE_ONLY"/>
+      <genEnumLiterals ecoreEnumLiteral="chessHour.ecore#//MoveType/MOVE_OR_CAPTURE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="chessHour.ecore#//Owner">
+      <genEnumLiterals ecoreEnumLiteral="chessHour.ecore#//Owner/PLAYER"/>
+      <genEnumLiterals ecoreEnumLiteral="chessHour.ecore#//Owner/OPPONENT"/>
+    </genEnums>
+    <genClasses ecoreClass="chessHour.ecore#//Puzzle">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference chessHour.ecore#//Puzzle/board"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference chessHour.ecore#//Puzzle/pieceTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference chessHour.ecore#//Puzzle/pieces"/>
+    </genClasses>
+    <genClasses ecoreClass="chessHour.ecore#//Board">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference chessHour.ecore#//Board/cells"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chessHour.ecore#//Board/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chessHour.ecore#//Board/height"/>
+    </genClasses>
+    <genClasses ecoreClass="chessHour.ecore#//Cell">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chessHour.ecore#//Cell/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chessHour.ecore#//Cell/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chessHour.ecore#//Cell/active"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chessHour.ecore#//Cell/blocked"/>
+    </genClasses>
+    <genClasses ecoreClass="chessHour.ecore#//PieceType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chessHour.ecore#//PieceType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chessHour.ecore#//PieceType/iconFile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference chessHour.ecore#//PieceType/moveRules"/>
+    </genClasses>
+    <genClasses ecoreClass="chessHour.ecore#//MoveRule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chessHour.ecore#//MoveRule/direction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chessHour.ecore#//MoveRule/maxDistance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chessHour.ecore#//MoveRule/infinite"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chessHour.ecore#//MoveRule/moveType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chessHour.ecore#//MoveRule/canJumpOverBlocked"/>
+    </genClasses>
+    <genClasses ecoreClass="chessHour.ecore#//PieceInstance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chessHour.ecore#//PieceInstance/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chessHour.ecore#//PieceInstance/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chessHour.ecore#//PieceInstance/owner"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference chessHour.ecore#//PieceInstance/type"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

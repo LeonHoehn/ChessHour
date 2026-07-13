@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated chessHour -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="chessHour.presentation.ChessHourModelWizardID"
+            name="%_UI_ChessHourModelWizard_label"
+            class="chessHour.presentation.ChessHourModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ChessHourModelFile.gif">
+         <description>%_UI_ChessHourModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated chessHour -->
+      <editor
+            id="chessHour.presentation.ChessHourEditorID"
+            name="%_UI_ChessHourEditor_label"
+            icon="icons/full/obj16/ChessHourModelFile.gif"
+            extensions="chesshour"
+            class="chessHour.presentation.ChessHourEditor"
+            contributorClass="chessHour.presentation.ChessHourActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
