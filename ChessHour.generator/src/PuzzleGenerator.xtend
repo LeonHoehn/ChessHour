@@ -95,6 +95,12 @@ let pieces = [
 «ENDFOR»
 ];
 
+const SOUNDS = {
+  move:    new Audio("data:audio/mpeg;base64,«loadBase64Asset("sounds", "move-self.mp3")»"),
+  capture: new Audio("data:audio/mpeg;base64,«loadBase64Asset("sounds", "capture.mp3")»"),
+  win:     new Audio("data:audio/mpeg;base64,«loadBase64Asset("sounds", "game-end.mp3")»")
+};
+
 «gameJs»
 
 render();
@@ -175,10 +181,11 @@ h1 { font-size: 22px; color: #b0b0b0; letter-spacing: 1px; }
   object-fit: contain;
   position: relative;
   z-index: 2;
-  cursor: pointer;
+  cursor: default;
   user-select: none;
   -webkit-user-drag: none;
 }
+.piece.own-piece { cursor: pointer; }
 .piece.selected { filter: drop-shadow(0 0 8px rgba(100,210,255,0.95)); }
 #status { font-size: 15px; color: #888; min-height: 22px; }
 #win-overlay {
@@ -289,6 +296,15 @@ function getValidMoves(piece) {
   return moves;
 }
 
+const hasOpponentPieces = pieces.some(p => p.owner === 'OPPONENT');
+
+function playSound(name) {
+  const audio = SOUNDS[name];
+  if (!audio) return;
+  audio.currentTime = 0;
+  audio.play().catch(() => {});
+}
+
 let selected  = null;
 let validMoves = [];
 
@@ -301,8 +317,10 @@ function handleClick(x, y) {
     selected.y = y;
     selected   = null;
     validMoves  = [];
-    if (pieces.every(p => p.owner !== 'OPPONENT' || p.captured)) {
+    playSound(victim ? 'capture' : 'move');
+    if (hasOpponentPieces && pieces.every(p => p.owner !== 'OPPONENT' || p.captured)) {
       render();
+      playSound('win');
       document.getElementById('win-overlay').classList.add('show');
       return;
     }
@@ -352,7 +370,7 @@ function render() {
       if (piece) {
         const img = document.createElement('img');
         img.src       = PIECE_TYPES[piece.typeName].image;
-        img.className = 'piece' + (selected === piece ? ' selected' : '');
+        img.className = 'piece' + (piece.owner === 'PLAYER' ? ' own-piece' : '') + (selected === piece ? ' selected' : '');
         img.alt       = piece.typeName;
         div.appendChild(img);
       }
@@ -365,8 +383,12 @@ function render() {
     // ─── Image loading ───────────────────────────────────────────────────────
 
     def loadBase64(String iconFile) {
+        loadBase64Asset("pieces", iconFile)
+    }
+
+    def loadBase64Asset(String folder, String file) {
         try {
-            val stream = class.getResourceAsStream("/assets/pieces/" + iconFile)
+            val stream = class.getResourceAsStream("/assets/" + folder + "/" + file)
             if (stream === null) return ""
             val bytes = stream.readAllBytes()
             stream.close()
