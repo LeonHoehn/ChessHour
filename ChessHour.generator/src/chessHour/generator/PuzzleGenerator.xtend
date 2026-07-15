@@ -1,3 +1,5 @@
+package chessHour.generator
+
 import chessHour.ChessHourPackage
 import chessHour.MoveRule
 import chessHour.PieceInstance
@@ -10,6 +12,7 @@ import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
+
 
 class PuzzleGenerator {
 

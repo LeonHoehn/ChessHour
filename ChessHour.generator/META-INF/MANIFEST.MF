@@ -13,3 +13,4 @@ Require-Bundle: org.eclipse.swt,
  org.eclipse.xtend.lib;bundle-version="2.42.0"
 Automatic-Module-Name: ChessHour.generator
 Bundle-RequiredExecutionEnvironment: JavaSE-21
+Export-Package: chessHour.generator
